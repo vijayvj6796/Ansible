@@ -14,5 +14,31 @@
 *Ansible is agent-lesss Archt
 * Ansible by default executes tasks on 5 Managed Nodes parallelly, but you can make it as serial by
 keeping "fork =1" in ansible.cfg file
+* by default ansible with take command as default module
 
 #ANSIBLE_KEEP_REMOTE_FILES=1 ansible all -m shell -a "uptime" / keeps the tmp module in client machine
+
+--------
+copy module (copy files from server to host)
+#ansible web -m copy  "src=./hosts dest=/home/ansadmin/"
+#ansible db -m copy -a "content='hi bro, i think im doing awesome\n' dest=/home/ansadmin/hi.txt"
+
+----
+fetch module (fetches or takes file from host to server)
+
+#ansible db -m fetch -a "src=/home/ansadmin/abc dest=./demo/" //just fetches file with full directory 
+#an db -m fetch -a "src=/home/ansadmin/abc dest=./demo/ flat=yes" //fetchs data without creating directory
+#an db -m fetch -a "src=/home/ansadmin/abc dest=./demo/{{ inventory_hostname }}_xyz.txt flat=yes" //fetches data without creating directory with hostname and file name for easy identification
+
+------
+file module (creating file)
+#an web -m file -a "path=/tmp/ state=touch" //creates files
+#an all -m file -a "path=/tmp/abc state=directory" //creates directory
+#an all -m file -a "path=/tmp/abc1 state=touch mode=777" //create file with that permission
+#an all -m file -a "path=/etc/abc state=absent  mode=777" -b //creates file with that permission under root file wit sudo acces
+
+--
+yum module ( to install or remove packagges)
+
+#an other -m yum -a "name=* state=latest" -b //to update the system
+#an other -m yum -a "name=git state=latest" -b //to install git 
