@@ -1,0 +1,6 @@
+---
+windows module
+
+#an win2 -m win_msg -a "display_seconds=60 msg='Can you see me' wait=yes"
+#an win2 -m win_firewall -a "state=enabled profiles=domain,private,Public"
+#an win2 -m win_copy -a "content='hi brother' dest=c:\cho.yml backup=yes 
