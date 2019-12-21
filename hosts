@@ -1,0 +1,13 @@
+[win]
+192.168.0.20
+
+[win:vars]
+ansible_user=admin
+ansible_password=12345
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+#ansible_port=5985
+ansible_port=5986
+ansible_connection=winrm
+#ansible_winrm_scheme=http
+ansible_winrm_scheme=https

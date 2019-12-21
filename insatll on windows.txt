@@ -1,0 +1,17 @@
+***********Windows Part******************
+
+   .\script.ps1
+   Set-ExecutionPolicy RemoteSigned
+  .\script.ps1
+   ipconfig
+   .\script.ps1
+  winrm
+ winrm enumerate winrm/config/Listener
+
+-----------------------
+Linux Part
+
+sudo pip install --ignore-installed "pywinrm>=0.2.2"
+
+
+
