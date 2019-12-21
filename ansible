@@ -1,7 +1,18 @@
 
-ansible all -m ping
-ansible db -m ping
-ansible db:web -m ping
-ansible db:web -m shell -a "uptime"
 
+# commant
+*key point
+/description_of_command
 
+#ansible all -m ping
+#ansible db -m ping
+#ansible db:web -m ping
+#ansible db:web -m shell -a "uptime"
+
+-------
+*ansible follows Push Mechanuism
+*Ansible is agent-lesss Archt
+* Ansible by default executes tasks on 5 Managed Nodes parallelly, but you can make it as serial by
+keeping "fork =1" in ansible.cfg file
+
+#ANSIBLE_KEEP_REMOTE_FILES=1 ansible all -m shell -a "uptime" / keeps the tmp module in client machine
