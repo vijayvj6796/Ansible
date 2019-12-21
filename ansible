@@ -1,0 +1,7 @@
+
+ansible all -m ping
+ansible db -m ping
+ansible db:web -m ping
+ansible db:web -m shell -a "uptime"
+
+
