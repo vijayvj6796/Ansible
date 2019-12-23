@@ -1,4 +1,4 @@
-#Steps to create custom Facts
+##Steps to create custom Facts
 
 * create a directory and file /etc/ansible/facts.d on managed Nodes
 * inside the facts.d directory create a custom file with extension as .fact

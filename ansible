@@ -16,6 +16,13 @@
 keeping "fork =1" in ansible.cfg file
 * by default ansible with take command as default module
 
+-b = become sudo
+-K = prompts for sudo password
+-u = used to send tasks for remote user
+-K = asks for user password 
+
+
+
 #ANSIBLE_KEEP_REMOTE_FILES=1 ansible all -m shell -a "uptime" / keeps the tmp module in client machine
 
 --------
@@ -42,3 +49,12 @@ yum module ( to install or remove packagges)
 
 #an other -m yum -a "name=* state=latest" -b //to update the system
 #an other -m yum -a "name=git state=latest" -b //to install git 
+
+----
+setup module ( to show basic info of clients)
+
+#an web -m setup -a "filter=Ansible_Architecture"
+----
+Raw module  (used if python is not installled in client users)
+
+#an wev -m raw -a "uptime"

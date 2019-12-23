@@ -1,0 +1,11 @@
+#yaml file
+---
+ - name: this is to test various module via playbook 
+   hosts: web:db:remote
+   become: yes
+   gather_facts: no
+   tasks:
+    - name: this to install wget on the server
+      yum: name=wget state=present
+    - name: copy files from server to host 
+      copy: content="hi bro,whatsapp\n" dest=/tmp/new.txt
