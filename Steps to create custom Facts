@@ -1,0 +1,15 @@
+Steps to create custom Facts
+
+* create a directory and file /etc/ansible/facts.d on managed Nodes
+* inside the facts.d directory create a custom file with extension as .fact
+* the output file shd be in format .json
+* give the executable permission for the file..
+
+
+##################
+
+1mkdir -r /etc/ansible/facts.d
+2 create a git.fact file
+3.chmod +x git.fact
+
+ansible all -m setup -a "filter=anible_local"
