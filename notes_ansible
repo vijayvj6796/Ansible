@@ -1,0 +1,9 @@
+#Variables
+> Scalar: used to represent date with keys and values
+
+
+
+##Data Structures
+> it is used to store multiple values
+> list [ ]
+> sequence { } 

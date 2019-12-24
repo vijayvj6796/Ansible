@@ -1,0 +1,15 @@
+#variables playbook
+---
+ - name: this is for variables
+   hosts: localhost
+   gather_facts: false
+   vars: [ my_name: "vijay",  x: 2, y: 3.5 x]   
+   tasks: 
+   - debug:
+      msg:
+       - "my owner name is {{my_name}}"
+       - "his lucky number is {{x}}"
+       - "his annual income is {{y}}"
+      
+
+    
