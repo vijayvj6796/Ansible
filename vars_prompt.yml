@@ -1,0 +1,16 @@
+---
+ - hosts: web
+   gather_facts: false
+   vars:
+    x: 24
+    z: vijay
+   vars_prompt:
+    prompt: enter the value for y
+    name: y
+    private: no
+   tasks:
+   - debug:
+      msg:
+       - "the value of x is {{x}}"
+       - "the value of y is {{y}}"
+       - "the value of y is {{z}}"

@@ -1,6 +1,6 @@
 
 
-# command
+# comman
 *key point
 /description_of_command
 
@@ -58,3 +58,22 @@ setup module ( to show basic info of clients)
 Raw module  (used if python is not installled in client users)
 
 #an wev -m raw -a "uptime"
+-----
+"setfact" and "REGISTER"(used to define variable)
+ Example:-
+ 	tasks:
+   - shell: 'bash --version'
+     register: abc  //stores output value from shell module and displays using debug module
+   - set_fact:
+     = new: "{{abc.stdout.split('\n')[0]}}" //assigns variable
+   - debug: var=new //takes value from new variable
+
+-----------
+vars_prompt ( used to prompt to enter value to display in vars list)
+syntax:
+	vars_prompt:
+    prompt: enter the value for y
+    name: y
+    private: no
+
+------------

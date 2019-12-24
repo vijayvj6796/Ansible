@@ -7,5 +7,8 @@
    tasks:
    - shell: 'bash --version'
      register: abc
-   - debug: var=abc.stdout
+   - set_fact:
+      new: "{{abc.stdout.split('\n')[0]}}"
+      my_value: "{{abc.cmd}}"
+   - debug: var=my_value
 
