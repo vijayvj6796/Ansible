@@ -64,7 +64,7 @@ Raw module  (used if python is not installled in client users)
  	tasks:
    - shell: 'bash --version'
      register: abc  //stores output value from shell module and displays using debug module
-   - set_fact:
+   - set_fact: //assign/design variables)
      = new: "{{abc.stdout.split('\n')[0]}}" //assigns variable
    - debug: var=new //takes value from new variable
 
@@ -77,3 +77,4 @@ syntax:
     private: no
 
 ------------
+-e (extra variable) used to send values from commandline args(arguments)
