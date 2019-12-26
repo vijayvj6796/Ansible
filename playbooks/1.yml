@@ -1,0 +1,9 @@
+---
+ - name: installing httpd
+   gather_facts: false
+   hosts: all
+   tasks:
+    - name: instaling using commandline args
+      yum: 
+        name: httpd 
+        state: present
