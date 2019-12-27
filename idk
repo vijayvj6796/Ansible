@@ -1,0 +1,21 @@
+cd 
+    2  cd /etc/sysconfig/network-scripts/
+    3  ls
+    4  sudo vi ifcfg-eth1
+    5  sudo ifdown eth1
+    6  sudo vi ifcfg-eth1
+    7  sudo ifdown eth1
+    8  sudo ifup eth1
+    9  ip r
+   10  sudo ifup eth1
+   11  ip r
+   12  ip a
+   13  vii ifcfg-eth1 
+   14  vi ifcfg-eth1 
+   15  sudo vi ifcfg-eth1 
+   16  sudo ifdown eth1
+   17  sudo ifup eth1
+   18  ip r
+   19  hostnamectl set-hostname node4
+   20  bash
+   21  history

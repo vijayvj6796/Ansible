@@ -7,3 +7,23 @@
 > sequence { } 
 
 * registers are used to store output of a task in a variable.
+
+---
+INline condition Statement
+
+if else
+tasks:
+ - debug:
+     msg " the value of {{x}} and {{y}} is {{x if {{x > y}} else y}}"
+
+------
+when condition
+
+tasks:
+    - name: installing http
+      yum:
+       name: httpd
+       state: present
+      when: ansible_distribution != 'Ubuntu'    
+
+---
