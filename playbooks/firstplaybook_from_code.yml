@@ -1,0 +1,31 @@
+#first playbook
+---
+ - hosts: all
+   gather_facts: false
+   vars:
+    x: 50
+    a: 'ansivle'
+    y:
+     - 5
+     - 7
+     - 7
+   tasks:
+    - debug:
+        msg:
+         - "display x {{a is defined}}"
+         - " a is {{a is string}}"
+         - " y is {{y }}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+---
+ - name: installing packages
+   hosts: all
+   become: yes
+   tasks:
+    - name: installing http
+      yum:
+       name: httpd
+       state: present
+      when: ansible_distribution != 'Ubuntu'
+    
+    - name: installing apache2
+      apt:
+       name: apache2
+       state: present
+      when: ansible_distribution == 'Ubuntu'
+
+
+    - debug:
+        msg:
+         - "the os dist id {{inventory_hostname}} , the flavous is{{ansible_distribution}}"
