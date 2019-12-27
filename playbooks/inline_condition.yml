@@ -1,0 +1,10 @@
+---
+ - name: installing packages
+   hosts: all
+   become: yes
+   tasks: 
+    - debug:
+       msg: "the value of x and y is {{x if (x > y) else y}}"
+      
+    
+    
