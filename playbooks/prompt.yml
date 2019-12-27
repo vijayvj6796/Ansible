@@ -1,0 +1,29 @@
+---
+ - name: installing packages
+   hosts: all
+   become: yes
+   vars_prompt:
+    - prompt: enter the package 
+      name: pkg
+      private: no
+    - prompt: enter package for apache
+      name: pkg2
+      private: no
+
+   tasks:
+    - name: installing http
+      yum:
+       name: "{{ pkg }}"
+       state: present
+      when: ansible_distribution != 'Ubuntu'
+    
+    - name: installing apache2
+      apt:
+       name: "{{ pkg2 }}"
+       state: present
+      when: ansible_distribution == 'Ubuntu'
+
+
+    - debug:
+        msg:
+         - "the os dist id {{inventory_hostname}} , the flavous is{{ansible_distribution}}"
