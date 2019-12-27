@@ -1,0 +1,14 @@
+---
+ - name: installing using loop
+   hosts: all
+   become: yes
+   gather_facts: false
+   tasks:
+    - yum:
+       name: "{{item}}"
+       state: absent
+      loop:
+       - git
+       - httpd
+       - tomcat
+       

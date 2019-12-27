@@ -1,0 +1,32 @@
+#using loop to install multiple package
+---
+ - name: installing using loop
+   hosts: all
+   become: yes
+   gather_facts: false
+   tasks:
+    - yum:
+       name: "{{item}}"
+       state: present
+      loop:
+       - git
+       - httpd
+       - tomcat
+      notify:
+        - httpd
+        - git
+        - tomcat    
+   handlers:
+    - name: httpd
+      service:
+       name: httpd
+       state: started
+    - name: git
+      service:
+       name: git
+       state: started
+    - name: tomcat
+      service:
+       name: tomcat
+       state: started
+       
