@@ -83,3 +83,7 @@ Test Operators
  > is lower, is upper, is avi_string
  > is divisible, is odd, is even, is number
  > is directory, is file, is link, is exists, is same_file
+
+ ----
+ Loops: 
+ it is used to run repeatative tasks or package:
