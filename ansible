@@ -87,3 +87,29 @@ Test Operators
  ----
  Loops: 
  it is used to run repeatative tasks or package:
+ tasks:
+    - yum:
+       name: "{{item}}"
+       state: absent
+      loop:
+       - git
+       - httpd
+       - tomcat
+
+ ----
+ Tags:
+ used to execute/skip required tasks from number of tasks
+ - never: used to execute tasks
+ - always: uesd to execute taks always
+ --list-hosts
+ -t <tags> 
+ tasks:
+    - debug:
+       msg: "printing 1st name"
+      tags: first
+    - debug:
+       msg: "hi 2nd"
+      tags: second
+    - debug:
+       msg: "3rd name"
+      tags: third

@@ -1,0 +1,44 @@
+ ##INStall and configure tomcat
+--- 
+ - name: installing httpd
+   hosts: 192.168.0.16  
+   become: yes
+   gather_facts: false
+   vars:
+    tomcat_port: 8090
+   tasks:
+    - name: updating repos
+      yum: 
+       name: "*"
+       state: latest
+      tags: 
+       - first
+    - name: installing java
+      yum: 
+        name: java-1.8.0-openjdk
+        state: latest
+      tags: 
+        second
+    
+    - name: downloadnig url
+      get_url:
+       url: http://mirrors.estointernet.in/apache/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz
+       dest: /tmp
+
+    - name: extracting the tar
+      unarchive:
+       src: "/tmp/apache-tomcat-9.0.30.tar.gz"
+       dest: "/tmp"
+       remote_src: yes 
+    
+    - name : renaming
+      command: mv /tmp/apache-tomcat-9.0.30 /tmp/latest
+      ignore_errors: yes
+
+    - name: replacing port
+      template:
+       src: server.xml.j2
+       dest: /tmp/latest/conf/server.xml
+    
+    - name: starting tomcat
+      shell: nohup /tmp/latest/bin/startup.sh &

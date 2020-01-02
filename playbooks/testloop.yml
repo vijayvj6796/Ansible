@@ -1,0 +1,25 @@
+##########
+
+---
+ - name: installing using loop
+   hosts: web
+   become: yes
+   gather_facts: false
+   tasks:
+    - yum:
+       name: "{{item}}"
+       state: present
+      with_items:
+       - git
+       - httpd
+       - tomcat
+      
+      ignore_errors: yes
+      notify:
+        - httpd
+       
+   handlers:
+      - name: httpd
+        service:
+            name: httpd
+            state: started

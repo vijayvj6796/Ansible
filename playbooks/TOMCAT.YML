@@ -1,0 +1,14 @@
+##testing tomcat
+--- 
+ - name: installing httpd
+   hosts: all
+   become: yes
+   gather_facts: false
+   vars:
+    tomcat_version: 9.0.30
+    tomcat_port: 8070
+   tasks:
+    - name: replacing port
+      template:
+       src: server.xml.j2
+       dest: /tmp/latest/conf/server.xml

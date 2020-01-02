@@ -1,0 +1,15 @@
+--- 
+ - hosts: all
+   gather_facts: false
+   tasks:
+    - debug:
+       msg: "printing 1st name"
+      tags: 
+        - first
+        - never        
+    - debug:
+       msg: "hi 2nd"
+      tags: second
+    - debug:
+       msg: "3rd name"
+      tags: third
